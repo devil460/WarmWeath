@@ -6,10 +6,11 @@ import org.litepal.crud.DataSupport;
  * Created by Think on 2017/6/11.
  */
 
-public class Provice extends DataSupport{
+public class Region extends DataSupport{
     private int id;
     private String provinceName;
-    private int provinceCode;
+    private String cityName;
+    private String districtName;
 
     public int getId() {
         return id;
@@ -27,11 +28,19 @@ public class Provice extends DataSupport{
         this.provinceName = provinceName;
     }
 
-    public int getProvinceCode() {
-        return provinceCode;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setProvinceCode(int provinceCode) {
-        this.provinceCode = provinceCode;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getDistrictName() {
+        return districtName;
+    }
+
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
     }
 }
