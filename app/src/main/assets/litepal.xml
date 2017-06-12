@@ -1,0 +1,9 @@
+<litepal>
+    <dbname value="warm_weather"/>
+    <version value="1"/>
+    <list>
+        <mapping class="com.ryan.warmweather.db.Abroad"/>
+        <mapping class="com.ryan.warmweather.db.Provice"/>
+    </list>
+
+</litepal>
