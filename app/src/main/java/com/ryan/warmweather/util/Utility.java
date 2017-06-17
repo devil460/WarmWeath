@@ -19,14 +19,15 @@ public class Utility {
     public static boolean handleResponse(String response){
         if (!TextUtils.isEmpty(response)) {
             try {
-                JSONArray allRegins = new JSONArray(response);
-                for (int i = 0; i < allRegins.length(); i++) {
-                    JSONObject RegionObject = allRegins.getJSONObject(i);
+                JSONArray allRegions = new JSONArray(response);
+                for (int i = 0; i < allRegions.length(); i++) {
+                    JSONObject RegionObject = allRegions.getJSONObject(i);
                     Region region = new Region();
                     region.setProvinceName(RegionObject.getString("province"));
                     region.setCityName(RegionObject.getString("city"));
                     region.setDistrictName(RegionObject.getString("district"));
                     region.setId(RegionObject.getInt("id"));
+
                     region.save();
                 }
                 return true;
