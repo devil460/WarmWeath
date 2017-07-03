@@ -1,6 +1,7 @@
 package com.ryan.warmweather;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -45,7 +46,6 @@ public class ChooseAreaFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.choose_area,container,false);
         View view = inflater.inflate(R.layout.choose_area,container,false);
         titleText = (TextView)view.findViewById(R.id.title_text);
         backButton = (Button)view.findViewById(R.id.back_button);
@@ -74,6 +74,12 @@ public class ChooseAreaFragment extends Fragment {
                 }else if(currentLevel==LEVEL_CITY){
                     selectedCity = dataList.get(position);
                     queryDistrict();
+                }else if(currentLevel == LEVEL_DISTRICT){
+                    String cityName = dataList.get(position);
+                    Intent intent = new Intent(getActivity(),Main2Activity.class);
+                    intent.putExtra("city_name",cityName);
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });

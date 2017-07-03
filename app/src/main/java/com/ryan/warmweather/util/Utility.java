@@ -2,7 +2,10 @@ package com.ryan.warmweather.util;
 
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
 import com.ryan.warmweather.db.Region;
+import com.ryan.warmweather.gson.Weather;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,25 +19,21 @@ public class Utility {
     /**
      * 解析服务器返回的数据
      */
-    public static boolean handleResponse(String response){
-        if (!TextUtils.isEmpty(response)) {
-            try {
-                JSONArray allRegions = new JSONArray(response);
-                for (int i = 0; i < allRegions.length(); i++) {
-                    JSONObject RegionObject = allRegions.getJSONObject(i);
-                    Region region = new Region();
-                    region.setProvinceName(RegionObject.getString("province"));
-                    region.setCityName(RegionObject.getString("city"));
-                    region.setDistrictName(RegionObject.getString("district"));
-                    region.setId(RegionObject.getInt("id"));
+    public static Weather handleWeatherResponse(String response){
+        try {
 
-                    region.save();
-                }
-                return true;
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+
+                JSONObject jsonObject = new JSONObject(response);
+
+                String weatherContent = jsonObject.getString("result");
+
+
+
+            return new Gson().fromJson(weatherContent,Weather.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return false;
+
+        return null;
     }
 }

@@ -1,5 +1,8 @@
 package com.ryan.warmweather;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -19,5 +22,11 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         setContentView(R.layout.activity_main);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if(sharedPreferences.getString("weather",null)!=null){
+            Intent intent = new Intent(this,Main2Activity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }
