@@ -12,6 +12,7 @@ import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
+    public static  boolean TRIGGER = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +25,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         if(sharedPreferences.getString("weather",null)!=null){
-            Intent intent = new Intent(this,Main2Activity.class);
-            startActivity(intent);
-            finish();
+            if(!TRIGGER){
+                Intent intent = new Intent(this,Main2Activity.class);
+                startActivity(intent);
+                finish();
+            }
         }
+
     }
 }

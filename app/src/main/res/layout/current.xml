@@ -3,40 +3,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center">
+
+
     <TextView
         android:id="@+id/humidity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#ffffffff"/>
 
     <TextView
         android:id="@+id/wind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/humidity"
+        android:textColor="#ffffffff"
         android:gravity="center"
+        android:textSize="20sp"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/temperature"
         android:layout_above="@id/wind"
-        android:textSize="15sp"
+        android:textSize="48sp"
         android:gravity="center"
+        android:textColor="#ffffffff"
         />
     <TextView
         android:id="@+id/weather"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/temperature"
+        android:textColor="#ffffffff"
+        android:textSize="20sp"
         android:gravity="center"/>
+    <ImageView
+        android:id="@+id/weather_big_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/weather"
+        android:layout_centerHorizontal="true"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/recycler_view"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"/>
 
 
 </RelativeLayout>

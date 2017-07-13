@@ -1,13 +1,13 @@
 package com.ryan.warmweather.util;
 
-import android.text.TextUtils;
+
 
 import com.google.gson.Gson;
-import com.ryan.warmweather.db.Region;
+
 import com.ryan.warmweather.gson.Weather;
 
 
-import org.json.JSONArray;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 

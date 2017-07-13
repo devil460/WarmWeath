@@ -2,9 +2,11 @@ package com.ryan.warmweather;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -78,6 +80,10 @@ public class ChooseAreaFragment extends Fragment {
                     String cityName = dataList.get(position);
                     Intent intent = new Intent(getActivity(),Main2Activity.class);
                     intent.putExtra("city_name",cityName);
+                    MainActivity.TRIGGER=false;
+                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MyApplication.getContext());
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("weather",null).apply();
                     startActivity(intent);
                     getActivity().finish();
                 }
